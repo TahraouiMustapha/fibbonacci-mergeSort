@@ -13,11 +13,10 @@ function fibs(iterateNum) {
 
 function fibsRec(iterateNum) {
     console.log("This was printed recursively");
-    let previous = iterateNum - 1;
-    let previous2 = iterateNum - 2;
     if(iterateNum == 1) return [0];
     else if(iterateNum == 2) return [0,1];
-    let arr = fibsRec(previous);
-    return arr.concat(arr.slice(-1)[0] + fibsRec(previous2).slice(-1)[0]);
+    let arr = fibsRec(iterateNum - 1);
+    return arr.concat(arr.slice(-1)[0] + arr.slice(-2)[0]);
 }
 
+console.log(fibsRec(8))
