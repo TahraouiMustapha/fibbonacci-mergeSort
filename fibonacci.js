@@ -12,11 +12,12 @@ function fibs(iterateNum) {
 // function to solve the problem recursively
 
 function fibsRec(iterateNum) {
+    console.log("This was printed recursively");
     let previous = iterateNum - 1;
     let previous2 = iterateNum - 2;
     if(iterateNum == 1) return [0];
-    else if(iterateNum == 2) return fibsRec(previous).concat(1);
-    return fibsRec(previous).concat(fibsRec(previous).pop() + fibsRec(previous2).pop());
+    else if(iterateNum == 2) return [0,1];
+    let arr = fibsRec(previous);
+    return arr.concat(arr.slice(-1)[0] + fibsRec(previous2).slice(-1)[0]);
 }
-
 
