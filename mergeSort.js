@@ -1,4 +1,11 @@
 
+function mergeSort(arr) {
+    if(arr.length == 1) return arr;
+    let middleIndex = Math.floor(arr.length / 2);
+    let firstOne = mergeSort(arr.slice(0, middleIndex));
+    let secondOne = mergeSort(arr.slice(middleIndex));
+    return merge(firstOne, secondOne);
+}
 
 function merge(arr1, arr2) {
     let arr = [];
@@ -17,16 +24,4 @@ function merge(arr1, arr2) {
     return arr;
 }
 
-console.log(merge([1, 5], [3, 18, 78]));
-
-
-function divide(arr) {
-    let middleIndex = Math.floor(arr.length / 2);
-    let left = arr.slice(0, middleIndex);
-    let right = arr.slice(middleIndex);
-
-    return [
-        left, right
-    ];
-}
 
